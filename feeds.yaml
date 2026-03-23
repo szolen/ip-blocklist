@@ -70,3 +70,43 @@ feeds:
     output_file: "dshield_topips.txt"
     category: "telemetry"
     confidence: "low"
+    
+  - id: feodo_tracker
+    enabled: true
+    url: "https://feodotracker.abuse.ch/downloads/ipblocklist.txt"
+    parser: "plain_text"
+    output_file: "feodo_tracker.txt"
+    category: "high-confidence"
+    confidence: "high"
+    
+  - id: urlhaus
+    enabled: true
+    url: "https://urlhaus.abuse.ch/downloads/ipblocklist.txt"
+    parser: "plain_text"
+    output_file: "urlhaus.txt"
+    category: "high-confidence"
+    confidence: "high"
+    
+  - id: blocklist_de
+    enabled: true
+    url: "https://lists.blocklist.de/lists/all.txt"
+    parser: "plain_text"
+    output_file: "blocklist_de.txt"
+    category: "telemetry"
+    confidence: "low"
+    
+  - id: binarydefense
+    enabled: true
+    url: "https://www.binarydefense.com/banlist.txt"
+    parser: "plain_text"
+    output_file: "binarydefense.txt"
+    category: "telemetry"
+    confidence: "medium"
+    
+  - id: greensnow
+    enabled: true
+    url: "https://blocklist.greensnow.co/greensnow.txt"
+    parser: "plain_text"
+    output_file: "greensnow.txt"
+    category: "telemetry"
+    confidence: "low"
