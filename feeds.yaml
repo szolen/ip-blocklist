@@ -22,3 +22,21 @@ feeds:
     url: "https://rules.emergingthreats.net/blockrules/compromised-ips.txt"
     parser: "plain_text"
     output_file: "emerging_compromised.txt"
+
+  - id: abuse_sslbl
+    enabled: true
+    url: "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt"
+    parser: "plain_text"
+    output_file: "abuse_sslbl.txt"
+
+  - id: cins_army
+    enabled: true
+    url: "https://cinsscore.com/list/ci-badguys.txt"
+    parser: "plain_text"
+    output_file: "cins_army.txt"
+
+  - id: dshield_top20
+    enabled: true
+    url: "https://www.dshield.org/top20.txt"
+    parser: "plain_text"
+    output_file: "dshield_top20.txt"
