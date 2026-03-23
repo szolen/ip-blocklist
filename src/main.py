@@ -4,18 +4,13 @@ import pathlib
 import sys
 
 import requests
-import yaml
 
+from src.config import ConfigError, FeedConfig, load_config
 from src.registry import PARSERS
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONFIG_FILE = ROOT / "feeds.yaml"
 OUTPUT_DIR = ROOT / "output"
-
-
-def load_config() -> dict:
-    with CONFIG_FILE.open("r", encoding="utf-8") as fh:
-        return yaml.safe_load(fh)
 
 
 def fetch_text(url: str) -> str:
@@ -35,43 +30,41 @@ def write_output(filename: str, entries: list[str]) -> None:
     target.write_text(content, encoding="utf-8")
 
 
-def process_feed(feed: dict) -> None:
-    feed_id = feed["id"]
-    url = feed["url"]
-    parser_name = feed["parser"]
-    output_file = feed["output_file"]
+def process_feed(feed: FeedConfig) -> None:
+    if feed.parser not in PARSERS:
+        raise RuntimeError(f"Unknown parser for feed '{feed.id}': {feed.parser}")
 
-    if parser_name not in PARSERS:
-        raise RuntimeError(f"Unknown parser for feed '{feed_id}': {parser_name}")
+    print(f"[INFO] Processing feed: {feed.id}")
+    print(f"[INFO] Fetching: {feed.url}")
 
-    print(f"[INFO] Processing feed: {feed_id}")
-    print(f"[INFO] Fetching: {url}")
-
-    text = fetch_text(url)
-    parser = PARSERS[parser_name]
+    text = fetch_text(feed.url)
+    parser = PARSERS[feed.parser]
     entries = parser.parse(text)
 
     print(f"[INFO] Parsed entries: {len(entries)}")
-    write_output(output_file, entries)
-    print(f"[INFO] Wrote: output/{output_file}")
+    write_output(feed.output_file, entries)
+    print(f"[INFO] Wrote: output/{feed.output_file}")
 
 
 def main() -> int:
-    config = load_config()
-    feeds = config.get("feeds", [])
+    try:
+        feeds = load_config(CONFIG_FILE)
+    except ConfigError as exc:
+        print(f"[FATAL] Config error: {exc}")
+        return 1
 
     failed = False
 
     for feed in feeds:
-        if not feed.get("enabled", True):
-            print(f"[INFO] Skipping disabled feed: {feed.get('id', 'unknown')}")
+        if not feed.enabled:
+            print(f"[INFO] Skipping disabled feed: {feed.id}")
             continue
 
         try:
             process_feed(feed)
         except Exception as exc:
             failed = True
-            print(f"[ERROR] Feed failed: {feed.get('id', 'unknown')} -> {exc}")
+            print(f"[ERROR] Feed failed: {feed.id} -> {exc}")
 
     return 1 if failed else 0
 
