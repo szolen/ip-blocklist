@@ -50,18 +50,24 @@ def process_feed(feed: FeedConfig) -> bool:
 
     try:
         parser = PARSERS[feed.parser]
-        entries = parser.parse(text)
+        result = parser.parse(text)
     except Exception as e:
         print(f"[ERROR] Parse failed: {feed.id} -> {e}")
         return False
 
-    if not isinstance(entries, list):
+    if not isinstance(result.entries, list):
         print(f"[ERROR] Invalid parser output: {feed.id}")
         return False
 
-    write_output_safe(feed.output_file, entries)
+    write_output_safe(feed.output_file, result.entries)
 
-    print(f"[INFO] OK: {feed.id} ({len(entries)} entries)")
+    print(
+        "[INFO] OK: "
+        f"{feed.id} "
+        f"(valid={result.stats.valid_entries}, "
+        f"invalid={result.stats.invalid_entries}, "
+        f"duplicates={result.stats.duplicate_entries})"
+    )
     return True
 
 

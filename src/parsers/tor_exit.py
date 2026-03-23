@@ -1,16 +1,19 @@
 from __future__ import annotations
 
-from typing import List
-
 from src.common import normalize_entries
+from src.models import ParseResult
 from src.parsers.base import BaseParser
 
 
 class TorExitParser(BaseParser):
-    def parse(self, text: str) -> List[str]:
-        entries: list[str] = []
+    name = "tor_exit"
+
+    def parse(self, text: str) -> ParseResult:
+        candidates: list[str] = []
+        total_lines = 0
 
         for line in text.splitlines():
+            total_lines += 1
             line = line.strip()
             if not line:
                 continue
@@ -18,6 +21,13 @@ class TorExitParser(BaseParser):
             if line.startswith("ExitAddress "):
                 parts = line.split()
                 if len(parts) >= 2:
-                    entries.append(parts[1])
+                    candidates.append(parts[1])
 
-        return normalize_entries(entries)
+        entries, stats = normalize_entries(candidates)
+        stats.total_lines = total_lines
+
+        return ParseResult(
+            entries=entries,
+            stats=stats,
+            metadata={"parser": self.name},
+        )
