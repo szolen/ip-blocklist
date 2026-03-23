@@ -7,6 +7,10 @@ from typing import Any
 import yaml
 
 
+class ConfigError(ValueError):
+    pass
+
+
 @dataclass(frozen=True)
 class FeedConfig:
     id: str
@@ -19,22 +23,18 @@ class FeedConfig:
     description: str = ""
 
 
-class ConfigError(ValueError):
-    pass
-
-
 REQUIRED_FIELDS = ("id", "url", "parser", "output_file")
 
 
-def _require_str(data: dict[str, Any], field_name: str) -> str:
-    value = data.get(field_name)
+def _require_str(raw_feed: dict[str, Any], field_name: str) -> str:
+    value = raw_feed.get(field_name)
     if not isinstance(value, str) or not value.strip():
         raise ConfigError(f"Feed field '{field_name}' must be a non-empty string")
     return value.strip()
 
 
-def _optional_str(data: dict[str, Any], field_name: str, default: str) -> str:
-    value = data.get(field_name, default)
+def _optional_str(raw_feed: dict[str, Any], field_name: str, default: str) -> str:
+    value = raw_feed.get(field_name, default)
     if value is None:
         return default
     if not isinstance(value, str):
@@ -42,8 +42,8 @@ def _optional_str(data: dict[str, Any], field_name: str, default: str) -> str:
     return value.strip() or default
 
 
-def _optional_bool(data: dict[str, Any], field_name: str, default: bool) -> bool:
-    value = data.get(field_name, default)
+def _optional_bool(raw_feed: dict[str, Any], field_name: str, default: bool) -> bool:
+    value = raw_feed.get(field_name, default)
     if not isinstance(value, bool):
         raise ConfigError(f"Feed field '{field_name}' must be a boolean")
     return value
@@ -71,7 +71,7 @@ def parse_feed(raw_feed: dict[str, Any], index: int) -> FeedConfig:
     )
 
 
-def load_config(config_file: Path) -> list[FeedConfig]:
+def load_feed_configs(config_file: Path) -> list[FeedConfig]:
     with config_file.open("r", encoding="utf-8") as fh:
         raw_config = yaml.safe_load(fh) or {}
 

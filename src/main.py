@@ -1,80 +1,93 @@
 from __future__ import annotations
 
-import pathlib
-import sys
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
 
-import requests
 import yaml
 
-from src.registry import PARSERS
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG_FILE = ROOT / "feeds.yaml"
-OUTPUT_DIR = ROOT / "output"
+class ConfigError(ValueError):
+    pass
 
 
-def load_config() -> dict:
-    with CONFIG_FILE.open("r", encoding="utf-8") as fh:
-        return yaml.safe_load(fh)
+@dataclass(frozen=True)
+class FeedConfig:
+    id: str
+    url: str
+    parser: str
+    output_file: str
+    enabled: bool = True
+    category: str = "default"
+    confidence: str = "unspecified"
+    description: str = ""
 
 
-def fetch_text(url: str) -> str:
-    response = requests.get(url, timeout=60)
-    response.raise_for_status()
-    return response.text
+REQUIRED_FIELDS = ("id", "url", "parser", "output_file")
 
 
-def write_output(filename: str, entries: list[str]) -> None:
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    target = OUTPUT_DIR / filename
-    content = "\n".join(entries).strip()
-
-    if content:
-        content += "\n"
-
-    target.write_text(content, encoding="utf-8")
+def _require_str(raw_feed: dict[str, Any], field_name: str) -> str:
+    value = raw_feed.get(field_name)
+    if not isinstance(value, str) or not value.strip():
+        raise ConfigError(f"Feed field '{field_name}' must be a non-empty string")
+    return value.strip()
 
 
-def process_feed(feed: dict) -> None:
-    feed_id = feed["id"]
-    url = feed["url"]
-    parser_name = feed["parser"]
-    output_file = feed["output_file"]
-
-    if parser_name not in PARSERS:
-        raise RuntimeError(f"Unknown parser for feed '{feed_id}': {parser_name}")
-
-    print(f"[INFO] Processing feed: {feed_id}")
-    print(f"[INFO] Fetching: {url}")
-
-    text = fetch_text(url)
-    parser = PARSERS[parser_name]
-    entries = parser.parse(text)
-
-    print(f"[INFO] Parsed entries: {len(entries)}")
-    write_output(output_file, entries)
-    print(f"[INFO] Wrote: output/{output_file}")
+def _optional_str(raw_feed: dict[str, Any], field_name: str, default: str) -> str:
+    value = raw_feed.get(field_name, default)
+    if value is None:
+        return default
+    if not isinstance(value, str):
+        raise ConfigError(f"Feed field '{field_name}' must be a string")
+    return value.strip() or default
 
 
-def main() -> int:
-    config = load_config()
-    feeds = config.get("feeds", [])
+def _optional_bool(raw_feed: dict[str, Any], field_name: str, default: bool) -> bool:
+    value = raw_feed.get(field_name, default)
+    if not isinstance(value, bool):
+        raise ConfigError(f"Feed field '{field_name}' must be a boolean")
+    return value
 
-    failed = False
 
+def parse_feed(raw_feed: dict[str, Any], index: int) -> FeedConfig:
+    if not isinstance(raw_feed, dict):
+        raise ConfigError(f"Feed at index {index} must be a mapping")
+
+    missing = [field for field in REQUIRED_FIELDS if field not in raw_feed]
+    if missing:
+        raise ConfigError(
+            f"Feed at index {index} is missing required fields: {', '.join(missing)}"
+        )
+
+    return FeedConfig(
+        id=_require_str(raw_feed, "id"),
+        url=_require_str(raw_feed, "url"),
+        parser=_require_str(raw_feed, "parser"),
+        output_file=_require_str(raw_feed, "output_file"),
+        enabled=_optional_bool(raw_feed, "enabled", True),
+        category=_optional_str(raw_feed, "category", "default"),
+        confidence=_optional_str(raw_feed, "confidence", "unspecified"),
+        description=_optional_str(raw_feed, "description", ""),
+    )
+
+
+def load_feed_configs(config_file: Path) -> list[FeedConfig]:
+    with config_file.open("r", encoding="utf-8") as fh:
+        raw_config = yaml.safe_load(fh) or {}
+
+    if not isinstance(raw_config, dict):
+        raise ConfigError("Top-level config must be a mapping")
+
+    raw_feeds = raw_config.get("feeds", [])
+    if not isinstance(raw_feeds, list):
+        raise ConfigError("Top-level 'feeds' key must contain a list")
+
+    feeds = [parse_feed(raw_feed, index) for index, raw_feed in enumerate(raw_feeds, start=1)]
+
+    seen_ids: set[str] = set()
     for feed in feeds:
-        if not feed.get("enabled", True):
-            print(f"[INFO] Skipping disabled feed: {feed.get('id', 'unknown')}")
-            continue
+        if feed.id in seen_ids:
+            raise ConfigError(f"Duplicate feed id: {feed.id}")
+        seen_ids.add(feed.id)
 
-        try:
-            process_feed(feed)
-        except Exception as exc:
-            failed = True
-            print(f"[ERROR] Feed failed: {feed.get('id', 'unknown')} -> {exc}")
-
-    return 1 if failed else 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    return feeds
