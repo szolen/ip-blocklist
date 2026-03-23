@@ -37,6 +37,8 @@ jobs:
           ls -la
           echo "--- output ---"
           ls -la output || true
+          echo "--- manifest ---"
+          cat output/manifest.json || true
 
       - name: Commit generated outputs
         run: |
