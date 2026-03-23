@@ -4,12 +4,16 @@ feeds:
     url: "https://check.torproject.org/exit-addresses"
     parser: "tor_exit"
     output_file: "tor_exit.txt"
+    category: "contextual"
+    confidence: "medium"
 
   - id: spamhaus_drop
     enabled: true
     url: "https://www.spamhaus.org/drop/drop.txt"
     parser: "spamhaus_drop"
     output_file: "spamhaus_drop.txt"
+    category: "high-confidence"
+    confidence: "high"
 
   - id: firehol_level1
     enabled: true
@@ -28,6 +32,8 @@ feeds:
     url: "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt"
     parser: "plain_text"
     output_file: "abuse_sslbl.txt"
+    category: "high-confidence"
+    confidence: "high"
 
   - id: cins_army
     enabled: true
@@ -40,3 +46,27 @@ feeds:
     url: "https://www.dshield.org/top20.txt"
     parser: "plain_text"
     output_file: "dshield_top20.txt"
+    
+  - id: dshield_top10
+    enabled: true
+    url: "https://feeds.dshield.org/feeds/top10.txt"
+    parser: "plain_text"
+    output_file: "dshield_top10.txt"
+    category: "telemetry"
+    confidence: "medium"
+
+  - id: dshield_block
+    enabled: true
+    url: "https://feeds.dshield.org/feeds/block.txt"
+    parser: "plain_text"
+    output_file: "dshield_block.txt"
+    category: "telemetry"
+    confidence: "medium"
+
+  - id: dshield_topips
+    enabled: false
+    url: "https://feeds.dshield.org/feeds/topips.txt"
+    parser: "plain_text"
+    output_file: "dshield_topips.txt"
+    category: "telemetry"
+    confidence: "low"
