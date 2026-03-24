@@ -2,24 +2,24 @@
   "feeds": [
     {
       "feed_id": "tor_exit",
-      "generated_at": "2026-03-24T10:50:41+00:00",
+      "generated_at": "2026-03-24T11:43:31+00:00",
       "metadata": {
         "parser": "tor_exit"
       },
       "output_file": "tor_exit.txt",
-      "record_count": 1180,
+      "record_count": 1179,
       "stats": {
-        "candidate_lines": 2810,
+        "candidate_lines": 2809,
         "duplicate_entries": 1630,
         "invalid_entries": 0,
-        "total_lines": 11237,
-        "valid_entries": 1180
+        "total_lines": 11233,
+        "valid_entries": 1179
       },
       "status": "success"
     },
     {
       "feed_id": "spamhaus_drop",
-      "generated_at": "2026-03-24T10:50:42+00:00",
+      "generated_at": "2026-03-24T11:43:32+00:00",
       "metadata": {
         "parser": "spamhaus_drop"
       },
@@ -36,24 +36,24 @@
     },
     {
       "feed_id": "firehol_level1",
-      "generated_at": "2026-03-24T10:50:42+00:00",
+      "generated_at": "2026-03-24T11:43:32+00:00",
       "metadata": {
         "parser": "firehol_level1"
       },
       "output_file": "firehol_level1.txt",
-      "record_count": 4568,
+      "record_count": 4575,
       "stats": {
-        "candidate_lines": 4568,
+        "candidate_lines": 4575,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "total_lines": 4601,
-        "valid_entries": 4568
+        "total_lines": 4608,
+        "valid_entries": 4575
       },
       "status": "success"
     },
     {
       "feed_id": "emerging_compromised",
-      "generated_at": "2026-03-24T10:50:42+00:00",
+      "generated_at": "2026-03-24T11:43:32+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -70,7 +70,7 @@
     },
     {
       "feed_id": "abuse_sslbl",
-      "generated_at": "2026-03-24T10:50:42+00:00",
+      "generated_at": "2026-03-24T11:43:32+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -87,7 +87,7 @@
     },
     {
       "feed_id": "cins_army",
-      "generated_at": "2026-03-24T10:50:43+00:00",
+      "generated_at": "2026-03-24T11:43:33+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -105,7 +105,7 @@
     {
       "error": "fetch failed: 404 Client Error: Not Found for url: https://www.dshield.org/top20.txt",
       "feed_id": "dshield_top20",
-      "generated_at": "2026-03-24T10:50:43+00:00",
+      "generated_at": "2026-03-24T11:43:33+00:00",
       "metadata": {},
       "output_file": "dshield_top20.txt",
       "record_count": 0,
@@ -114,7 +114,7 @@
     },
     {
       "feed_id": "dshield_top10",
-      "generated_at": "2026-03-24T10:50:43+00:00",
+      "generated_at": "2026-03-24T11:43:33+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -131,7 +131,7 @@
     },
     {
       "feed_id": "dshield_block",
-      "generated_at": "2026-03-24T10:50:44+00:00",
+      "generated_at": "2026-03-24T11:43:34+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -148,7 +148,7 @@
     },
     {
       "feed_id": "dshield_topips",
-      "generated_at": "2026-03-24T10:50:44+00:00",
+      "generated_at": "2026-03-24T11:43:34+00:00",
       "metadata": {},
       "output_file": "dshield_topips.txt",
       "record_count": 0,
@@ -157,7 +157,7 @@
     },
     {
       "feed_id": "feodo_tracker",
-      "generated_at": "2026-03-24T10:50:44+00:00",
+      "generated_at": "2026-03-24T11:43:34+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -175,7 +175,7 @@
     {
       "error": "fetch failed: 404 Client Error: Not Found for url: https://urlhaus.abuse.ch/downloads/ipblocklist.txt",
       "feed_id": "urlhaus",
-      "generated_at": "2026-03-24T10:50:44+00:00",
+      "generated_at": "2026-03-24T11:43:34+00:00",
       "metadata": {},
       "output_file": "urlhaus.txt",
       "record_count": 0,
@@ -184,24 +184,24 @@
     },
     {
       "feed_id": "blocklist_de",
-      "generated_at": "2026-03-24T10:50:45+00:00",
+      "generated_at": "2026-03-24T11:43:35+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_file": "blocklist_de.txt",
-      "record_count": 21475,
+      "record_count": 21552,
       "stats": {
-        "candidate_lines": 21479,
+        "candidate_lines": 21556,
         "duplicate_entries": 4,
         "invalid_entries": 0,
-        "total_lines": 21479,
-        "valid_entries": 21475
+        "total_lines": 21556,
+        "valid_entries": 21552
       },
       "status": "success"
     },
     {
       "feed_id": "binarydefense",
-      "generated_at": "2026-03-24T10:50:45+00:00",
+      "generated_at": "2026-03-24T11:43:35+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -218,21 +218,21 @@
     },
     {
       "feed_id": "greensnow",
-      "generated_at": "2026-03-24T10:50:46+00:00",
+      "generated_at": "2026-03-24T11:43:36+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_file": "greensnow.txt",
-      "record_count": 4688,
+      "record_count": 3152,
       "stats": {
-        "candidate_lines": 4688,
+        "candidate_lines": 3152,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "total_lines": 4688,
-        "valid_entries": 4688
+        "total_lines": 3152,
+        "valid_entries": 3152
       },
       "status": "success"
     }
   ],
-  "generated_at": "2026-03-24T10:50:46+00:00"
+  "generated_at": "2026-03-24T11:43:36+00:00"
 }
