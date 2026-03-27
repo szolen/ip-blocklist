@@ -2,7 +2,7 @@
   "feeds": [
     {
       "feed_id": "tor_exit",
-      "generated_at": "2026-03-27T05:05:27+00:00",
+      "generated_at": "2026-03-27T07:04:12+00:00",
       "metadata": {
         "parser": "tor_exit"
       },
@@ -19,7 +19,7 @@
     },
     {
       "feed_id": "spamhaus_drop",
-      "generated_at": "2026-03-27T05:05:27+00:00",
+      "generated_at": "2026-03-27T07:04:12+00:00",
       "metadata": {
         "parser": "spamhaus_drop"
       },
@@ -36,7 +36,7 @@
     },
     {
       "feed_id": "firehol_level1",
-      "generated_at": "2026-03-27T05:05:27+00:00",
+      "generated_at": "2026-03-27T07:04:12+00:00",
       "metadata": {
         "parser": "firehol_level1"
       },
@@ -53,7 +53,7 @@
     },
     {
       "feed_id": "emerging_compromised",
-      "generated_at": "2026-03-27T05:05:27+00:00",
+      "generated_at": "2026-03-27T07:04:13+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -70,7 +70,7 @@
     },
     {
       "feed_id": "abuse_sslbl",
-      "generated_at": "2026-03-27T05:05:27+00:00",
+      "generated_at": "2026-03-27T07:04:13+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -87,7 +87,7 @@
     },
     {
       "feed_id": "cins_army",
-      "generated_at": "2026-03-27T05:05:28+00:00",
+      "generated_at": "2026-03-27T07:04:13+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -105,7 +105,7 @@
     {
       "error": "fetch failed: 404 Client Error: Not Found for url: https://www.dshield.org/top20.txt",
       "feed_id": "dshield_top20",
-      "generated_at": "2026-03-27T05:05:28+00:00",
+      "generated_at": "2026-03-27T07:04:14+00:00",
       "metadata": {},
       "output_file": "dshield_top20.txt",
       "record_count": 0,
@@ -114,7 +114,7 @@
     },
     {
       "feed_id": "dshield_top10",
-      "generated_at": "2026-03-27T05:05:28+00:00",
+      "generated_at": "2026-03-27T07:04:14+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -131,7 +131,7 @@
     },
     {
       "feed_id": "dshield_block",
-      "generated_at": "2026-03-27T05:05:29+00:00",
+      "generated_at": "2026-03-27T07:04:14+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -148,7 +148,7 @@
     },
     {
       "feed_id": "dshield_topips",
-      "generated_at": "2026-03-27T05:05:29+00:00",
+      "generated_at": "2026-03-27T07:04:14+00:00",
       "metadata": {},
       "output_file": "dshield_topips.txt",
       "record_count": 0,
@@ -157,7 +157,7 @@
     },
     {
       "feed_id": "feodo_tracker",
-      "generated_at": "2026-03-27T05:05:29+00:00",
+      "generated_at": "2026-03-27T07:04:14+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -175,7 +175,7 @@
     {
       "error": "fetch failed: 404 Client Error: Not Found for url: https://urlhaus.abuse.ch/downloads/ipblocklist.txt",
       "feed_id": "urlhaus",
-      "generated_at": "2026-03-27T05:05:29+00:00",
+      "generated_at": "2026-03-27T07:04:15+00:00",
       "metadata": {},
       "output_file": "urlhaus.txt",
       "record_count": 0,
@@ -184,24 +184,24 @@
     },
     {
       "feed_id": "blocklist_de",
-      "generated_at": "2026-03-27T05:05:29+00:00",
+      "generated_at": "2026-03-27T07:04:15+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_file": "blocklist_de.txt",
-      "record_count": 31005,
+      "record_count": 31327,
       "stats": {
-        "candidate_lines": 31005,
+        "candidate_lines": 31327,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "total_lines": 31005,
-        "valid_entries": 31005
+        "total_lines": 31327,
+        "valid_entries": 31327
       },
       "status": "success"
     },
     {
       "feed_id": "binarydefense",
-      "generated_at": "2026-03-27T05:05:30+00:00",
+      "generated_at": "2026-03-27T07:04:16+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -218,21 +218,21 @@
     },
     {
       "feed_id": "greensnow",
-      "generated_at": "2026-03-27T05:05:31+00:00",
+      "generated_at": "2026-03-27T07:04:16+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_file": "greensnow.txt",
-      "record_count": 5979,
+      "record_count": 5961,
       "stats": {
-        "candidate_lines": 5979,
+        "candidate_lines": 5961,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "total_lines": 5979,
-        "valid_entries": 5979
+        "total_lines": 5961,
+        "valid_entries": 5961
       },
       "status": "success"
     }
   ],
-  "generated_at": "2026-03-27T05:05:31+00:00"
+  "generated_at": "2026-03-27T07:04:16+00:00"
 }
