@@ -7,12 +7,14 @@ import requests
 
 from src.config import ConfigError, FeedConfig, load_feed_configs
 from src.manifest import build_manifest_entry, write_manifest
+from src.mikrotik import write_mikrotik_output
 from src.models import ParseResult
 from src.registry import PARSERS
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONFIG_FILE = ROOT / "feeds.yaml"
 OUTPUT_DIR = ROOT / "output"
+MIKROTIK_TIMEOUT = "1d"
 
 
 def fetch_text(url: str) -> str:
@@ -59,6 +61,12 @@ def process_feed(feed: FeedConfig) -> tuple[bool, ParseResult | None, str | None
         return False, None, error
 
     write_output_safe(feed.output_file, result.entries)
+    write_mikrotik_output(
+        output_dir=OUTPUT_DIR,
+        feed_id=feed.id,
+        entries=result.entries,
+        timeout=MIKROTIK_TIMEOUT,
+    )
 
     print(
         "[INFO] OK: "
