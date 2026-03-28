@@ -32,7 +32,7 @@ feeds:
     output_dir: "emerging_compromised"
 
   - id: abuse_sslbl
-    enabled: true
+    enabled: false
     url: "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt"
     parser: "plain_text"
     output_file: "abuse_sslbl.txt"
@@ -49,10 +49,12 @@ feeds:
 
   - id: dshield_top20
     enabled: true
-    url: "https://www.dshield.org/top20.txt"
+    url: "https://feeds.dshield.org/feeds/block.txt"
     parser: "plain_text"
     output_file: "dshield_top20.txt"
     output_dir: "dshield_top20"
+    category: "telemetry"
+    confidence: "medium"
 
   - id: dshield_top10
     enabled: true
@@ -92,7 +94,7 @@ feeds:
 
   - id: urlhaus
     enabled: true
-    url: "https://urlhaus.abuse.ch/downloads/ipblocklist.txt"
+    url: "https://urlhaus.abuse.ch/downloads/hostfile/"
     parser: "plain_text"
     output_file: "urlhaus.txt"
     output_dir: "urlhaus"
