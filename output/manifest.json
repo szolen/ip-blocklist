@@ -7,7 +7,7 @@
         "tor_exit/tor_exit.txt"
       ],
       "feed_id": "tor_exit",
-      "generated_at": "2026-03-28T23:28:04+00:00",
+      "generated_at": "2026-03-28T23:29:45+00:00",
       "metadata": {
         "parser": "tor_exit"
       },
@@ -30,7 +30,7 @@
         "spamhaus_drop/spamhaus_drop.txt"
       ],
       "feed_id": "spamhaus_drop",
-      "generated_at": "2026-03-28T23:28:04+00:00",
+      "generated_at": "2026-03-28T23:29:45+00:00",
       "metadata": {
         "parser": "spamhaus_drop"
       },
@@ -55,7 +55,7 @@
         "firehol_level1/firehol_level1.txt"
       ],
       "feed_id": "firehol_level1",
-      "generated_at": "2026-03-28T23:28:04+00:00",
+      "generated_at": "2026-03-28T23:29:45+00:00",
       "metadata": {
         "parser": "firehol_level1"
       },
@@ -78,7 +78,7 @@
         "emerging_compromised/emerging_compromised.txt"
       ],
       "feed_id": "emerging_compromised",
-      "generated_at": "2026-03-28T23:28:05+00:00",
+      "generated_at": "2026-03-28T23:29:45+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -98,21 +98,13 @@
       "chunk_count": 0,
       "chunk_files": [],
       "feed_id": "abuse_sslbl",
-      "generated_at": "2026-03-28T23:28:05+00:00",
-      "metadata": {
-        "parser": "plain_text"
-      },
+      "generated_at": "2026-03-28T23:29:45+00:00",
+      "metadata": {},
       "output_dir": "abuse_sslbl",
       "output_file": "abuse_sslbl.txt",
       "record_count": 0,
-      "stats": {
-        "candidate_lines": 0,
-        "duplicate_entries": 0,
-        "invalid_entries": 0,
-        "total_lines": 12,
-        "valid_entries": 0
-      },
-      "status": "success"
+      "stats": null,
+      "status": "disabled"
     },
     {
       "chunk_count": 8,
@@ -128,7 +120,7 @@
         "cins_army/cins_army.txt"
       ],
       "feed_id": "cins_army",
-      "generated_at": "2026-03-28T23:28:05+00:00",
+      "generated_at": "2026-03-28T23:29:46+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -145,17 +137,27 @@
       "status": "success"
     },
     {
-      "chunk_count": 0,
-      "chunk_files": [],
-      "error": "fetch failed: 404 Client Error: Not Found for url: https://www.dshield.org/top20.txt",
+      "chunk_count": 1,
+      "chunk_files": [
+        "dshield_top20/feed_01.txt",
+        "dshield_top20/dshield_top20.txt"
+      ],
       "feed_id": "dshield_top20",
-      "generated_at": "2026-03-28T23:28:06+00:00",
-      "metadata": {},
+      "generated_at": "2026-03-28T23:29:46+00:00",
+      "metadata": {
+        "parser": "plain_text"
+      },
       "output_dir": "dshield_top20",
       "output_file": "dshield_top20.txt",
-      "record_count": 0,
-      "stats": null,
-      "status": "failed"
+      "record_count": 20,
+      "stats": {
+        "candidate_lines": 20,
+        "duplicate_entries": 0,
+        "invalid_entries": 0,
+        "total_lines": 48,
+        "valid_entries": 20
+      },
+      "status": "success"
     },
     {
       "chunk_count": 1,
@@ -164,7 +166,7 @@
         "dshield_top10/dshield_top10.txt"
       ],
       "feed_id": "dshield_top10",
-      "generated_at": "2026-03-28T23:28:06+00:00",
+      "generated_at": "2026-03-28T23:29:46+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -187,7 +189,7 @@
         "dshield_block/dshield_block.txt"
       ],
       "feed_id": "dshield_block",
-      "generated_at": "2026-03-28T23:28:06+00:00",
+      "generated_at": "2026-03-28T23:29:46+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -207,7 +209,7 @@
       "chunk_count": 0,
       "chunk_files": [],
       "feed_id": "dshield_topips",
-      "generated_at": "2026-03-28T23:28:06+00:00",
+      "generated_at": "2026-03-28T23:29:46+00:00",
       "metadata": {},
       "output_dir": "dshield_topips",
       "output_file": "dshield_topips.txt",
@@ -222,7 +224,7 @@
         "feodo_tracker/feodo_tracker.txt"
       ],
       "feed_id": "feodo_tracker",
-      "generated_at": "2026-03-28T23:28:06+00:00",
+      "generated_at": "2026-03-28T23:29:46+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -239,17 +241,27 @@
       "status": "success"
     },
     {
-      "chunk_count": 0,
-      "chunk_files": [],
-      "error": "fetch failed: 404 Client Error: Not Found for url: https://urlhaus.abuse.ch/downloads/ipblocklist.txt",
+      "chunk_count": 1,
+      "chunk_files": [
+        "urlhaus/feed_01.txt",
+        "urlhaus/urlhaus.txt"
+      ],
       "feed_id": "urlhaus",
-      "generated_at": "2026-03-28T23:28:06+00:00",
-      "metadata": {},
+      "generated_at": "2026-03-28T23:29:46+00:00",
+      "metadata": {
+        "parser": "plain_text"
+      },
       "output_dir": "urlhaus",
       "output_file": "urlhaus.txt",
-      "record_count": 0,
-      "stats": null,
-      "status": "failed"
+      "record_count": 1,
+      "stats": {
+        "candidate_lines": 451,
+        "duplicate_entries": 450,
+        "invalid_entries": 0,
+        "total_lines": 460,
+        "valid_entries": 1
+      },
+      "status": "success"
     },
     {
       "chunk_count": 20,
@@ -277,7 +289,7 @@
         "blocklist_de/blocklist_de.txt"
       ],
       "feed_id": "blocklist_de",
-      "generated_at": "2026-03-28T23:28:07+00:00",
+      "generated_at": "2026-03-28T23:29:47+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -303,7 +315,7 @@
         "binarydefense/binarydefense.txt"
       ],
       "feed_id": "binarydefense",
-      "generated_at": "2026-03-28T23:28:08+00:00",
+      "generated_at": "2026-03-28T23:29:48+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -328,7 +340,7 @@
         "greensnow/greensnow.txt"
       ],
       "feed_id": "greensnow",
-      "generated_at": "2026-03-28T23:28:09+00:00",
+      "generated_at": "2026-03-28T23:29:49+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -345,5 +357,5 @@
       "status": "success"
     }
   ],
-  "generated_at": "2026-03-28T23:28:09+00:00"
+  "generated_at": "2026-03-28T23:29:49+00:00"
 }
