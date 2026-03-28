@@ -2,11 +2,8 @@ name: Build IP lists
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 * * * *"
 
 jobs:
   build:
@@ -40,8 +37,6 @@ jobs:
           ls -la
           echo "--- output ---"
           ls -la output || true
-          echo "--- output/mikrotik ---"
-          ls -la output/mikrotik || true
           echo "--- manifest ---"
           cat output/manifest.json || true
 
