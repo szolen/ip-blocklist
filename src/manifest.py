@@ -17,15 +17,22 @@ def build_manifest_entry(
     *,
     feed_id: str,
     output_file: str,
+    output_dir: str,
     status: str,
     parse_result: ParseResult | None,
     error: str | None = None,
+    chunk_files: list[str] | None = None,
 ) -> dict[str, Any]:
+    chunk_files = chunk_files or []
+
     entry: dict[str, Any] = {
         "feed_id": feed_id,
         "output_file": output_file,
+        "output_dir": output_dir,
         "status": status,
         "generated_at": utc_timestamp(),
+        "chunk_files": chunk_files,
+        "chunk_count": len([name for name in chunk_files if "/feed_" in name]),
     }
 
     if parse_result is not None:

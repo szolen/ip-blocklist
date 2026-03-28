@@ -4,6 +4,7 @@ feeds:
     url: "https://check.torproject.org/exit-addresses"
     parser: "tor_exit"
     output_file: "tor_exit.txt"
+    output_dir: "tor_exit"
     category: "contextual"
     confidence: "medium"
 
@@ -12,6 +13,7 @@ feeds:
     url: "https://www.spamhaus.org/drop/drop.txt"
     parser: "spamhaus_drop"
     output_file: "spamhaus_drop.txt"
+    output_dir: "spamhaus_drop"
     category: "high-confidence"
     confidence: "high"
 
@@ -20,18 +22,21 @@ feeds:
     url: "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset"
     parser: "firehol_level1"
     output_file: "firehol_level1.txt"
+    output_dir: "firehol_level1"
 
   - id: emerging_compromised
     enabled: true
     url: "https://rules.emergingthreats.net/blockrules/compromised-ips.txt"
     parser: "plain_text"
     output_file: "emerging_compromised.txt"
+    output_dir: "emerging_compromised"
 
   - id: abuse_sslbl
     enabled: true
     url: "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt"
     parser: "plain_text"
     output_file: "abuse_sslbl.txt"
+    output_dir: "abuse_sslbl"
     category: "high-confidence"
     confidence: "high"
 
@@ -40,18 +45,21 @@ feeds:
     url: "https://cinsscore.com/list/ci-badguys.txt"
     parser: "plain_text"
     output_file: "cins_army.txt"
+    output_dir: "cins_army"
 
   - id: dshield_top20
     enabled: true
     url: "https://www.dshield.org/top20.txt"
     parser: "plain_text"
     output_file: "dshield_top20.txt"
-    
+    output_dir: "dshield_top20"
+
   - id: dshield_top10
     enabled: true
     url: "https://feeds.dshield.org/feeds/top10.txt"
     parser: "plain_text"
     output_file: "dshield_top10.txt"
+    output_dir: "dshield_top10"
     category: "telemetry"
     confidence: "medium"
 
@@ -60,6 +68,7 @@ feeds:
     url: "https://feeds.dshield.org/feeds/block.txt"
     parser: "plain_text"
     output_file: "dshield_block.txt"
+    output_dir: "dshield_block"
     category: "telemetry"
     confidence: "medium"
 
@@ -68,45 +77,51 @@ feeds:
     url: "https://feeds.dshield.org/feeds/topips.txt"
     parser: "plain_text"
     output_file: "dshield_topips.txt"
+    output_dir: "dshield_topips"
     category: "telemetry"
     confidence: "low"
-    
+
   - id: feodo_tracker
     enabled: true
     url: "https://feodotracker.abuse.ch/downloads/ipblocklist.txt"
     parser: "plain_text"
     output_file: "feodo_tracker.txt"
+    output_dir: "feodo_tracker"
     category: "high-confidence"
     confidence: "high"
-    
+
   - id: urlhaus
     enabled: true
     url: "https://urlhaus.abuse.ch/downloads/ipblocklist.txt"
     parser: "plain_text"
     output_file: "urlhaus.txt"
+    output_dir: "urlhaus"
     category: "high-confidence"
     confidence: "high"
-    
+
   - id: blocklist_de
     enabled: true
     url: "https://lists.blocklist.de/lists/all.txt"
     parser: "plain_text"
     output_file: "blocklist_de.txt"
+    output_dir: "blocklist_de"
     category: "telemetry"
     confidence: "low"
-    
+
   - id: binarydefense
     enabled: true
     url: "https://www.binarydefense.com/banlist.txt"
     parser: "plain_text"
     output_file: "binarydefense.txt"
+    output_dir: "binarydefense"
     category: "telemetry"
     confidence: "medium"
-    
+
   - id: greensnow
     enabled: true
     url: "https://blocklist.greensnow.co/greensnow.txt"
     parser: "plain_text"
     output_file: "greensnow.txt"
+    output_dir: "greensnow"
     category: "telemetry"
     confidence: "low"

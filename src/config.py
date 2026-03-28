@@ -17,13 +17,14 @@ class FeedConfig:
     url: str
     parser: str
     output_file: str
+    output_dir: str
     enabled: bool = True
     category: str = "default"
     confidence: str = "unspecified"
     description: str = ""
 
 
-REQUIRED_FIELDS = ("id", "url", "parser", "output_file")
+REQUIRED_FIELDS = ("id", "url", "parser", "output_file", "output_dir")
 
 
 def _require_str(raw_feed: dict[str, Any], field_name: str) -> str:
@@ -64,6 +65,7 @@ def parse_feed(raw_feed: dict[str, Any], index: int) -> FeedConfig:
         url=_require_str(raw_feed, "url"),
         parser=_require_str(raw_feed, "parser"),
         output_file=_require_str(raw_feed, "output_file"),
+        output_dir=_require_str(raw_feed, "output_dir"),
         enabled=_optional_bool(raw_feed, "enabled", True),
         category=_optional_str(raw_feed, "category", "default"),
         confidence=_optional_str(raw_feed, "confidence", "unspecified"),
@@ -85,9 +87,15 @@ def load_feed_configs(config_file: Path) -> list[FeedConfig]:
     feeds = [parse_feed(raw_feed, index) for index, raw_feed in enumerate(raw_feeds, start=1)]
 
     seen_ids: set[str] = set()
+    seen_output_dirs: set[str] = set()
+
     for feed in feeds:
         if feed.id in seen_ids:
             raise ConfigError(f"Duplicate feed id: {feed.id}")
         seen_ids.add(feed.id)
+
+        if feed.output_dir in seen_output_dirs:
+            raise ConfigError(f"Duplicate feed output_dir: {feed.output_dir}")
+        seen_output_dirs.add(feed.output_dir)
 
     return feeds
