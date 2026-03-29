@@ -17,6 +17,15 @@ feeds:
     category: "high-confidence"
     confidence: "high"
 
+  - id: spamhaus_edrop
+    enabled: true
+    url: "https://www.spamhaus.org/drop/edrop.txt"
+    parser: "spamhaus_drop"
+    output_file: "spamhaus_edrop.txt"
+    output_dir: "spamhaus_edrop"
+    category: "high-confidence"
+    confidence: "high"
+
   - id: firehol_level1
     enabled: true
     url: "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset"
@@ -37,6 +46,24 @@ feeds:
     parser: "plain_text"
     output_file: "abuse_sslbl.txt"
     output_dir: "abuse_sslbl"
+    category: "high-confidence"
+    confidence: "high"
+
+  - id: feodo_tracker
+    enabled: true
+    url: "https://feodotracker.abuse.ch/downloads/ipblocklist.txt"
+    parser: "plain_text"
+    output_file: "feodo_tracker.txt"
+    output_dir: "feodo_tracker"
+    category: "high-confidence"
+    confidence: "high"
+
+  - id: feodo_recommended
+    enabled: true
+    url: "https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt"
+    parser: "plain_text"
+    output_file: "feodo_recommended.txt"
+    output_dir: "feodo_recommended"
     category: "high-confidence"
     confidence: "high"
 
@@ -83,15 +110,6 @@ feeds:
     category: "telemetry"
     confidence: "low"
 
-  - id: feodo_tracker
-    enabled: true
-    url: "https://feodotracker.abuse.ch/downloads/ipblocklist.txt"
-    parser: "plain_text"
-    output_file: "feodo_tracker.txt"
-    output_dir: "feodo_tracker"
-    category: "high-confidence"
-    confidence: "high"
-
   - id: urlhaus
     enabled: true
     url: "https://urlhaus.abuse.ch/downloads/hostfile/"
@@ -134,5 +152,14 @@ feeds:
     parser: "plain_text"
     output_file: "public_doh_ipv4.txt"
     output_dir: "public_doh_ipv4"
+    category: "encrypted-dns"
+    confidence: "medium"
+
+  - id: public_doh_ipv6
+    enabled: true
+    url: "https://raw.githubusercontent.com/dibdot/DoH-IP-blocklists/master/doh-ipv6.txt"
+    parser: "plain_text"
+    output_file: "public_doh_ipv6.txt"
+    output_dir: "public_doh_ipv6"
     category: "encrypted-dns"
     confidence: "medium"
