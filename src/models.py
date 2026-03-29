@@ -16,6 +16,9 @@ class ParseStats:
     valid_entries: int = 0
     invalid_entries: int = 0
     duplicate_entries: int = 0
+    normalized_entries: int = 0
+    aggregated_entries: int = 0
+    aggregation_reduced_by: int = 0
 
 
 @dataclass

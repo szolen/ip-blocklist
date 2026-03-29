@@ -26,23 +26,22 @@ def fetch_text(url: str) -> str:
     return response.text
 
 
-def normalize_entries(entries: list[str]) -> list[str]:
-    normalized = sorted({entry.strip() for entry in entries if entry and entry.strip()})
-    return normalized
-
-
 def build_chunks(entries: list[str], max_chunk_bytes: int = MAX_CHUNK_BYTES) -> list[str]:
     chunks: list[str] = []
     current_lines: list[str] = []
     current_size = 0
 
     for entry in entries:
-        line = f"{entry}\n"
+        clean_entry = entry.strip()
+        if not clean_entry:
+            continue
+
+        line = f"{clean_entry}\n"
         line_size = len(line.encode("utf-8"))
 
         if line_size > max_chunk_bytes:
             raise ValueError(
-                f"Single entry exceeds chunk size limit ({max_chunk_bytes} bytes): {entry}"
+                f"Single entry exceeds chunk size limit ({max_chunk_bytes} bytes): {clean_entry}"
             )
 
         if current_lines and current_size + line_size > max_chunk_bytes:
@@ -66,18 +65,18 @@ def reset_feed_output_dir(feed_output_dir: pathlib.Path) -> None:
 
 
 def write_chunked_output(feed: FeedConfig, entries: list[str]) -> list[str]:
-    normalized_entries = normalize_entries(entries)
     feed_output_dir = OUTPUT_DIR / feed.output_dir
 
-    if not normalized_entries:
+    if not entries:
         print(f"[WARN] Skip write (empty result): {feed.id}")
         reset_feed_output_dir(feed_output_dir)
         return []
 
-    chunks = build_chunks(normalized_entries)
+    chunks = build_chunks(entries)
     reset_feed_output_dir(feed_output_dir)
 
     written_files: list[str] = []
+
     for index, chunk_content in enumerate(chunks, start=1):
         filename = f"{CHUNK_PREFIX}{index:02d}{CHUNK_SUFFIX}"
         target = feed_output_dir / filename
@@ -124,13 +123,24 @@ def process_feed(feed: FeedConfig) -> tuple[bool, ParseResult | None, str | None
         print(f"[ERROR] {feed.id} -> {error}")
         return False, None, error, []
 
+    chunk_count = len(
+        [
+            name
+            for name in written_files
+            if name.endswith(".txt") and "/feed_" in name
+        ]
+    )
+
     print(
         "[INFO] OK: "
         f"{feed.id} "
         f"(valid={result.stats.valid_entries}, "
         f"invalid={result.stats.invalid_entries}, "
         f"duplicates={result.stats.duplicate_entries}, "
-        f"chunks={len([name for name in written_files if name.endswith('.txt') and '/feed_' in name])})"
+        f"normalized={result.stats.normalized_entries}, "
+        f"aggregated={result.stats.aggregated_entries}, "
+        f"reduced_by={result.stats.aggregation_reduced_by}, "
+        f"chunks={chunk_count})"
     )
 
     return True, result, None, written_files
