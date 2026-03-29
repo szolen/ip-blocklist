@@ -127,3 +127,12 @@ feeds:
     output_dir: "greensnow"
     category: "telemetry"
     confidence: "low"
+
+  - id: public_doh_ipv4
+    enabled: true
+    url: "https://raw.githubusercontent.com/dibdot/DoH-IP-blocklists/master/doh-ipv4.txt"
+    parser: "plain_text"
+    output_file: "public_doh_ipv4.txt"
+    output_dir: "public_doh_ipv4"
+    category: "encrypted-dns"
+    confidence: "medium"
