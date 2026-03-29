@@ -41,7 +41,7 @@ feeds:
     output_dir: "emerging_compromised"
 
   - id: abuse_sslbl
-    enabled: false
+    enabled: true
     url: "https://sslbl.abuse.ch/blacklist/sslipblacklist.txt"
     parser: "plain_text"
     output_file: "abuse_sslbl.txt"
@@ -102,7 +102,7 @@ feeds:
     confidence: "medium"
 
   - id: dshield_topips
-    enabled: false
+    enabled: true
     url: "https://feeds.dshield.org/feeds/topips.txt"
     parser: "plain_text"
     output_file: "dshield_topips.txt"
