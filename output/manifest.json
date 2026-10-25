@@ -7,22 +7,22 @@
         "tor_exit/tor_exit.txt"
       ],
       "feed_id": "tor_exit",
-      "generated_at": "2026-10-25T18:19:32+00:00",
+      "generated_at": "2026-10-25T21:37:43+00:00",
       "metadata": {
         "parser": "tor_exit"
       },
       "output_dir": "tor_exit",
       "output_file": "tor_exit.txt",
-      "record_count": 642,
+      "record_count": 640,
       "stats": {
-        "aggregated_entries": 642,
+        "aggregated_entries": 640,
         "aggregation_reduced_by": 572,
-        "candidate_lines": 2791,
+        "candidate_lines": 2789,
         "duplicate_entries": 1577,
         "invalid_entries": 0,
-        "normalized_entries": 1214,
-        "total_lines": 11158,
-        "valid_entries": 1214
+        "normalized_entries": 1212,
+        "total_lines": 11153,
+        "valid_entries": 1212
       },
       "status": "success"
     },
@@ -33,7 +33,7 @@
         "spamhaus_drop/spamhaus_drop.txt"
       ],
       "feed_id": "spamhaus_drop",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:43+00:00",
       "metadata": {
         "parser": "spamhaus_drop"
       },
@@ -56,7 +56,7 @@
       "chunk_count": 0,
       "chunk_files": [],
       "feed_id": "spamhaus_edrop",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:43+00:00",
       "metadata": {
         "parser": "spamhaus_drop"
       },
@@ -84,7 +84,7 @@
         "firehol_level1/firehol_level1.txt"
       ],
       "feed_id": "firehol_level1",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:43+00:00",
       "metadata": {
         "parser": "firehol_level1"
       },
@@ -110,7 +110,7 @@
         "emerging_compromised/emerging_compromised.txt"
       ],
       "feed_id": "emerging_compromised",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:44+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -133,7 +133,7 @@
       "chunk_count": 0,
       "chunk_files": [],
       "feed_id": "abuse_sslbl",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:44+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -159,7 +159,7 @@
         "feodo_tracker/feodo_tracker.txt"
       ],
       "feed_id": "feodo_tracker",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:44+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -185,7 +185,7 @@
         "feodo_recommended/feodo_recommended.txt"
       ],
       "feed_id": "feodo_recommended",
-      "generated_at": "2026-10-25T18:19:33+00:00",
+      "generated_at": "2026-10-25T21:37:44+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -217,16 +217,16 @@
         "cins_army/cins_army.txt"
       ],
       "feed_id": "cins_army",
-      "generated_at": "2026-10-25T18:19:34+00:00",
+      "generated_at": "2026-10-25T21:37:44+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_dir": "cins_army",
       "output_file": "cins_army.txt",
-      "record_count": 12282,
+      "record_count": 12457,
       "stats": {
-        "aggregated_entries": 12282,
-        "aggregation_reduced_by": 2718,
+        "aggregated_entries": 12457,
+        "aggregation_reduced_by": 2543,
         "candidate_lines": 15000,
         "duplicate_entries": 0,
         "invalid_entries": 0,
@@ -243,7 +243,7 @@
         "dshield_top20/dshield_top20.txt"
       ],
       "feed_id": "dshield_top20",
-      "generated_at": "2026-10-25T18:19:35+00:00",
+      "generated_at": "2026-10-25T21:37:45+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -269,7 +269,7 @@
         "dshield_top10/dshield_top10.txt"
       ],
       "feed_id": "dshield_top10",
-      "generated_at": "2026-10-25T18:19:35+00:00",
+      "generated_at": "2026-10-25T21:37:45+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -295,7 +295,7 @@
         "dshield_block/dshield_block.txt"
       ],
       "feed_id": "dshield_block",
-      "generated_at": "2026-10-25T18:19:35+00:00",
+      "generated_at": "2026-10-25T21:37:45+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -321,7 +321,7 @@
         "dshield_topips/dshield_topips.txt"
       ],
       "feed_id": "dshield_topips",
-      "generated_at": "2026-10-25T18:19:35+00:00",
+      "generated_at": "2026-10-25T21:37:45+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -345,7 +345,7 @@
       "chunk_files": [],
       "error": "fetch failed: 410 Client Error: Gone for url: https://urlhaus.abuse.ch/downloads/hostfile/",
       "feed_id": "urlhaus",
-      "generated_at": "2026-10-25T18:19:35+00:00",
+      "generated_at": "2026-10-25T21:37:45+00:00",
       "metadata": {},
       "output_dir": "urlhaus",
       "output_file": "urlhaus.txt",
@@ -368,22 +368,22 @@
         "blocklist_de/blocklist_de.txt"
       ],
       "feed_id": "blocklist_de",
-      "generated_at": "2026-10-25T18:19:36+00:00",
+      "generated_at": "2026-10-25T21:37:46+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_dir": "blocklist_de",
       "output_file": "blocklist_de.txt",
-      "record_count": 15225,
+      "record_count": 15498,
       "stats": {
-        "aggregated_entries": 15225,
-        "aggregation_reduced_by": 8422,
-        "candidate_lines": 23647,
+        "aggregated_entries": 15498,
+        "aggregation_reduced_by": 8493,
+        "candidate_lines": 23991,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "normalized_entries": 23647,
-        "total_lines": 23647,
-        "valid_entries": 23647
+        "normalized_entries": 23991,
+        "total_lines": 23991,
+        "valid_entries": 23991
       },
       "status": "success"
     },
@@ -394,7 +394,7 @@
         "binarydefense/binarydefense.txt"
       ],
       "feed_id": "binarydefense",
-      "generated_at": "2026-10-25T18:19:37+00:00",
+      "generated_at": "2026-10-25T21:37:46+00:00",
       "metadata": {
         "parser": "plain_text"
       },
@@ -422,22 +422,22 @@
         "greensnow/greensnow.txt"
       ],
       "feed_id": "greensnow",
-      "generated_at": "2026-10-25T18:19:38+00:00",
+      "generated_at": "2026-10-25T21:37:47+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_dir": "greensnow",
       "output_file": "greensnow.txt",
-      "record_count": 4378,
+      "record_count": 4361,
       "stats": {
-        "aggregated_entries": 4378,
-        "aggregation_reduced_by": 102,
-        "candidate_lines": 4480,
+        "aggregated_entries": 4361,
+        "aggregation_reduced_by": 95,
+        "candidate_lines": 4456,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "normalized_entries": 4480,
-        "total_lines": 4480,
-        "valid_entries": 4480
+        "normalized_entries": 4456,
+        "total_lines": 4456,
+        "valid_entries": 4456
       },
       "status": "success"
     },
@@ -448,16 +448,16 @@
         "public_doh_ipv4/public_doh_ipv4.txt"
       ],
       "feed_id": "public_doh_ipv4",
-      "generated_at": "2026-10-25T18:19:38+00:00",
+      "generated_at": "2026-10-25T21:37:48+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_dir": "public_doh_ipv4",
       "output_file": "public_doh_ipv4.txt",
-      "record_count": 1676,
+      "record_count": 1679,
       "stats": {
-        "aggregated_entries": 1676,
-        "aggregation_reduced_by": 264,
+        "aggregated_entries": 1679,
+        "aggregation_reduced_by": 261,
         "candidate_lines": 1940,
         "duplicate_entries": 0,
         "invalid_entries": 0,
@@ -474,25 +474,25 @@
         "public_doh_ipv6/public_doh_ipv6.txt"
       ],
       "feed_id": "public_doh_ipv6",
-      "generated_at": "2026-10-25T18:19:38+00:00",
+      "generated_at": "2026-10-25T21:37:48+00:00",
       "metadata": {
         "parser": "plain_text"
       },
       "output_dir": "public_doh_ipv6",
       "output_file": "public_doh_ipv6.txt",
-      "record_count": 1118,
+      "record_count": 1117,
       "stats": {
-        "aggregated_entries": 1118,
+        "aggregated_entries": 1117,
         "aggregation_reduced_by": 263,
-        "candidate_lines": 1381,
+        "candidate_lines": 1380,
         "duplicate_entries": 0,
         "invalid_entries": 0,
-        "normalized_entries": 1381,
-        "total_lines": 1381,
-        "valid_entries": 1381
+        "normalized_entries": 1380,
+        "total_lines": 1380,
+        "valid_entries": 1380
       },
       "status": "success"
     }
   ],
-  "generated_at": "2026-10-25T18:19:38+00:00"
+  "generated_at": "2026-10-25T21:37:48+00:00"
 }
